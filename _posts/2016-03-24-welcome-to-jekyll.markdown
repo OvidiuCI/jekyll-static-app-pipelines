@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to Ovidiu 1st Post!"
 date:   2016-03-24 15:32:14 -0300
 categories: jekyll update
 ---
