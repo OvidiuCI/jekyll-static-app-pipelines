@@ -26,7 +26,7 @@ steps:
   inputs:
     testResultsFiles: '**/test-*.xml'
     testRunTitle: 'Ruby tests'
-    
+
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
