@@ -19,5 +19,5 @@ steps:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
-- script: bundle exec build -d public
-  displayName: 'bundle exec build -d public'
+- script: bundle exec jekyll build -d public
+  displayName: 'bundle exec jekyll build -d public'
