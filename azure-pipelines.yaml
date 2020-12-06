@@ -1,29 +1,23 @@
-image: ruby:latest
+# Ruby
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
-variables:
-  JEKYLL_ENV: production
-  LC_ALL: C.UTF-8
+trigger:
+- main
 
-before_script:
-  - gem install bundler
-  - bundle install
+pool:
+  vmImage: 'ubuntu-latest'
 
-test:
-  stage: test
-  script:
-  - bundle exec jekyll build -d test
-  artifacts:
-    paths:
-    - test
-  except:
-  - master
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
 
-pages:
-  stage: deploy
-  script:
-  - bundle exec jekyll build -d public
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+  displayName: 'bundle install'
+
+- script: bundle exec jekyll build -d public
+  displayName: 'bundle exec jekyll build -d public'
