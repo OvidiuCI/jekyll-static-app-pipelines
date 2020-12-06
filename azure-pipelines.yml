@@ -17,7 +17,7 @@ steps:
   displayName: 'bundle install'
 
 - script: bundle exec jekyll build -d public
-  displayName: 'bundle exec jekyll build'
+  displayName: 'bundle exec jekyll build -d public'
 
 # - script: bundle exec rspec spec --format RspecJunitFormatter --out test_results/TEST-rspec.xml
 
@@ -26,7 +26,7 @@ steps:
   inputs:
     testResultsFiles: '**/test-*.xml'
     testRunTitle: 'Ruby tests'
-
+    
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
