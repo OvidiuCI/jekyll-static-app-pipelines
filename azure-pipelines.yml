@@ -16,11 +16,13 @@ steps:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
-- script: bundle exec jekyll build -d _site
+- script: bundle exec jekyll build -d public
   displayName: 'bundle exec jekyll build'
 
 # - script: bundle exec rspec spec --format RspecJunitFormatter --out test_results/TEST-rspec.xml
-    
+
+
+
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
