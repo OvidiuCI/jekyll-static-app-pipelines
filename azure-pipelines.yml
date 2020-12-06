@@ -12,6 +12,7 @@ steps:
     versionSpec: '>= 2.6'
 
 - script: |
+    sudo gem update --system
     gem install bundler
     gem install bundler:2.1.4
     bundle install --retry=3 --jobs=4
