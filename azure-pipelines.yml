@@ -14,6 +14,9 @@ steps:
 - script:
     gem install bundler
     gem install bundler:2.1.4
+  displayName: 'gem install'
+
+- script:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
